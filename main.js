@@ -1,4 +1,8 @@
-var swiper = new Swiper(".swiper-container", {
+import Swiper from "swiper";
+import "swiper/css";
+import { popularApi } from "./api/movie";
+
+const swiper = new Swiper(".swiper", {
 	slidesPerView: 4,
 	pagination: {
 		el: ".swiper-pagination",
@@ -24,3 +28,7 @@ var swiper = new Swiper(".swiper-container", {
 		},
 	},
 });
+
+popularApi()
+	.then((res) => console.log(res.data))
+	.catch((error) => console.error(error));
