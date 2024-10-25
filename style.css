@@ -1,6 +1,4 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
 * {
 	margin: 0;
 	padding: 0;
@@ -9,7 +7,7 @@
 }
 
 body {
-	background-color: #1E2538FF;
+	background-color: #1E2538;
 }
 
 .container {
@@ -22,7 +20,6 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-
 }
 
 .top_left_part {
@@ -68,15 +65,45 @@ body {
 		}
 	}
 
+		background-color: #1e2538;
+	}
+
+
+.home_trailer {
+	width: 1440px;
+}
+
+.box_trailer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	h1 {
+		font-size: 65px;
+	}
+
+	div {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+
+		p {
+			font-size: 22px;
+		}
+
+		img {
+			width: 40px;
+			height: 40px;
+		}
+	}
 }
 
 .line {
 	width: 51.5px;
-	border: 2px solid #FFFFFF
+	border: 2px solid #ffffff;
 }
 
 .top_right_part {
-
 	display: flex;
 	gap: 35px;
 
@@ -84,7 +111,7 @@ body {
 		font-size: 18px;
 		font-weight: 700;
 		line-height: 22.3px;
-		color: #6E717BFF;
+		color: #6e717bff;
 
 		text-align: left;
 	}
@@ -93,7 +120,6 @@ body {
 		color: white;
 		transition: 500ms;
 	}
-
 }
 
 a {
@@ -105,7 +131,6 @@ a {
 a:hover {
 	color: #535bf2;
 }
-
 
 .pictures {
 	display: flex;
@@ -133,9 +158,6 @@ a:hover {
 		font-weight: 900;
 	}
 
-	display: flex;
-	justify-content: space-between;
-
 	.right {
 		display: flex;
 		align-items: center;
@@ -161,14 +183,8 @@ a:hover {
 }
 
 .header {
-	padding: 10px 0;
+	padding: 30px 0;
 }
-
-/* .container {
-	max-width: 1440px;
-	width: 100%;
-	margin: 0 auto;
-} */
 
 .header__container {
 	display: flex;
@@ -176,16 +192,10 @@ a:hover {
 	align-items: center;
 }
 
-.logo a {
-	color: #fff;
-	font-size: 24px;
-	text-decoration: none;
-	font-weight: bold;
-	margin-left: 80px;
-}
+.logo {
+	width: 164px;
 
-.logo span {
-	color: #00a4ff;
+	image-rendering: 100%;
 }
 
 .nav ul {
@@ -211,7 +221,6 @@ a:hover {
 .search_login {
 	display: flex;
 	align-items: center;
-	padding-right: 80px;
 	gap: 5px;
 }
 
@@ -233,6 +242,15 @@ a:hover {
 
 .login-btn:hover {
 	background-color: #008cdb;
+}
+
+.now_playing {
+	margin-top: 40px;
+	margin-bottom: 120px;
+}
+
+.upcoming {
+	margin-bottom: 120px;
 }
 
 /* /////////////////////////////////////////////////////////// */
@@ -297,9 +315,14 @@ a:hover {
 .img_box {
 	height: 462.91px;
 	border-radius: 10px;
-	background-color: #FFFFFF;
 	margin-bottom: 12px;
 	position: relative;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 }
 
 .cinema_name {
@@ -314,7 +337,7 @@ a:hover {
 	font-weight: 400;
 	line-height: 17.85px;
 	text-align: left;
-	color: #F2F60F;
+	color: #f2f60f;
 }
 
 .reyting {
@@ -323,7 +346,7 @@ a:hover {
 	right: 10px;
 	top: 10px;
 	position: absolute;
-	background-color: #89CB36;
+	background-color: #89cb36;
 	font-size: 18px;
 	font-weight: 700;
 	text-align: left;
@@ -335,7 +358,7 @@ a:hover {
 }
 
 .all_news {
-	border: 2px solid #FFFFFF;
+	border: 2px solid #ffffff;
 	background-color: transparent;
 	width: 200px;
 	height: 71px;
@@ -356,15 +379,13 @@ a:hover {
 }
 
 .color {
-	color: #FFFFFF;
+	color: #ffffff;
 }
 
 .block {
-
 	margin-top: 50px;
 
 	img {
-
 		width: 100%;
 		border-radius: 7px;
 	}
@@ -380,7 +401,6 @@ a:hover {
 	display: flex;
 	align-items: center;
 	gap: 20px;
-
 }
 
 .reviews {
@@ -391,7 +411,7 @@ a:hover {
 .likes {
 	width: 59px;
 	height: 59px;
-	background-color: #1B2133;
+	background-color: #1b2133;
 	border-radius: 10px;
 	display: flex;
 	justify-content: center;
@@ -401,7 +421,7 @@ a:hover {
 .dislike {
 	width: 59px;
 	height: 59px;
-	background-color: #1B2133;
+	background-color: #1b2133;
 
 	border-radius: 10px;
 	display: flex;
@@ -413,30 +433,26 @@ a:hover {
 	}
 }
 
+/* - Swiper---------------------------------------------- */
+
 .swiper-container {
 	width: 100%;
-	padding: 20px 0;
+	overflow: hidden;
+	margin-top: 24px;
 
 	h3 {
 		color: white;
 	}
 }
 
-
 .swiper-slide {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-
 	border-radius: 10px;
-	overflow: hidden;
 }
 
 .swiper-slide img {
 	width: 100%;
-	height: 220px;
+	height: 240px;
 	object-fit: cover;
-
 }
 
 .swiper-slide h3 {
@@ -458,8 +474,6 @@ a:hover {
 
 .movie-item {
 	position: relative;
-	width: 300px;
-
 }
 
 .movie-item img {
