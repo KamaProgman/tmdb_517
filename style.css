@@ -8,7 +8,7 @@
 }
 
 body {
-	background-color: #1E2538;
+	background-color: #1e2538;
 }
 
 .container {
@@ -96,7 +96,8 @@ a:hover {
 }
 
 .pictures {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
 	margin-top: 70px;
 	gap: 24px;
 }
@@ -104,7 +105,7 @@ a:hover {
 .white {
 	font-size: 18px;
 	color: white;
-	margin: 14px 0 7px 0  ;
+	margin: 14px 0 7px 0;
 	font-weight: 700;
 }
 
@@ -189,13 +190,12 @@ a:hover {
 .search_login {
 	display: flex;
 	align-items: center;
-	gap:12px;
+	gap: 12px;
 }
 
 .search_login img {
 	width: 30px;
-	padding: 5px;	
-
+	padding: 5px;
 }
 
 .login_btn {
@@ -219,7 +219,7 @@ a:hover {
 }
 
 .upcoming {
-	margin-bottom: 120px;
+	margin-top: 120px;
 }
 
 /* /////////////////////////////////////////////////////////// */
