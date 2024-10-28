@@ -227,6 +227,9 @@ a:hover {
 .search_login img {
 	width: 30px;
 	padding: 5px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 3px;
 }
 
 .login_btn {
