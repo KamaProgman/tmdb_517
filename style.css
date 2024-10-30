@@ -352,7 +352,7 @@ a:hover {
 }
 
 .block {
-	margin-top: 50px;
+	margin: 32px 0;
 
 	img {
 		width: 100%;

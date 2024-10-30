@@ -21,7 +21,17 @@ export async function popularApi() {
 }
 export async function upcomingApi(params) {
 	try {
-		let res = await makeRequest("/movie/upcoming", { page: 2 });
+		let res = await makeRequest("/movie/upcoming", { page: 1 });
+
+		return res;
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+export async function getMovieTrailer(movie_id) {
+	try {
+		let res = await makeRequest(`/movie/${movie_id}/videos`, { page: 1 });
 
 		return res;
 	} catch (error) {

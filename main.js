@@ -1,37 +1,33 @@
 import Swiper from "swiper";
 import "swiper/css";
-// import { popularApi } from "./api/movie";
 
 import { nowPlayingApi, popularApi, upcomingApi } from "./api/movie";
 import { reload } from "./libs/utils";
 import { Movie } from "./components/Movie";
+import { Trailer } from "./components/Trailer";
 
-nowPlayingApi()
-	.then((res) =>
+Promise.all([nowPlayingApi(), upcomingApi(), popularApi()])
+	.then(([nowPlaying, upcoming, popular]) => {
 		reload(
-			res.data.results.slice(0, 8),
+			nowPlaying.data.results.slice(0, 8),
 			document.querySelector(".mn_center_item"),
 			Movie
-		)
-	)
-	.catch((error) => console.error(error));
-
-upcomingApi()
-	.then((res) =>
+		);
 		reload(
-			res.data.results.slice(0, 4),
+			upcoming.data.results.slice(0, 4),
 			document.querySelector(".pictures"),
 			Movie
-		)
-	)
+		);
+		reload(
+			popular.data.results,
+			document.querySelector(".trailers_list"),
+			Trailer
+		);
+	})
 	.catch((error) => console.error(error));
 
 const swiper = new Swiper(".swiper", {
 	slidesPerView: 4,
-	pagination: {
-		el: ".swiper-pagination",
-		clickable: true,
-	},
 	freeMode: true,
 	breakpoints: {
 		640: {
