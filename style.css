@@ -292,6 +292,13 @@ a:hover {
 		height: 100%;
 		object-fit: cover;
 	}
+
+	img:hover {
+		width: 105%;
+		/* height: 140%; */
+		transition: 1s;
+
+	}
 }
 
 .cinema_name {
@@ -448,4 +455,105 @@ a:hover {
 .movie-item img {
 	width: 100%;
 	border-radius: 10px;
+}
+
+.left_part_popular {
+	display: flex;
+	align-items: center;
+	gap: 23px;
+}
+
+.bottom_popular {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	/* grid-template-columns: 3fr, 2fr; */
+	/* grid-auto-rows: 444px; */
+	margin-top: 63px;
+}
+
+.celebrity {
+	height: 444px;
+	width: 444px;
+	display: flex;
+	flex-direction: column;
+	/* align-items: center; */
+	justify-content: space-between;
+	background-size: cover;
+	background-position: center;
+}
+
+.popular_reyting {
+	font-size: 15px;
+	color: #F2F60F;
+	margin-top: 12px;
+	font-weight: 500;
+	margin-left: 16px;
+}
+
+.name {
+	font-size: 27px;
+	font-weight: 700;
+	color: white;
+}
+
+.orig_name {
+	font-size: 20px;
+	font-weight: 600;
+	color: #FFFFFF59;
+}
+
+.age {
+	font-size: 15px;
+	font-weight: 500;
+	color: #F2F60F;
+}
+
+.bottom_part {
+	margin-left: 36px;
+	margin-bottom: 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.celebrity_right {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 15px 0;
+	border-bottom: 2px solid #1E2538;
+}
+
+.right_part_popular {
+	height: 444px;
+	width: 444px;
+	background-color: #1B2133;
+	border-radius: 10px;
+	padding: 30px 33px;
+}
+
+.name2 {
+	font-size: 20px;
+	font-weight: 700;
+	color: white;
+}
+
+.orig_name2 {
+	font-size: 15px;
+	font-weight: 600;
+	color: #FFFFFF59;
+}
+
+.age2 {
+	font-size: 14px;
+	font-weight: 500;
+	color: #F2F60F;
+	margin-bottom: 22px;
+}
+
+.popular_reyting {
+	color: #F2F60F;
+	font-size: 15px;
+	font-weight: 600;
 }

@@ -1,7 +1,7 @@
 import { imageBaseUrl } from "../libs/utils";
 
 export function Movie(item) {
-	console.log(item);
+	// console.log(item);
 
 	const itemDiv = document.createElement("div");
 	itemDiv.className = "item";

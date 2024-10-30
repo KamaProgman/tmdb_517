@@ -2,7 +2,7 @@ import { makeRequest } from "./makeRequest";
 
 export async function nowPlayingApi() {
 	try {
-		let res = await makeRequest("/movie/now_playing", { page: 2 });
+		let res = await makeRequest("/movie/now_playing", { page: 1 });
 
 		return res;
 	} catch (error) {
@@ -21,7 +21,7 @@ export async function popularApi() {
 }
 export async function upcomingApi(params) {
 	try {
-		let res = await makeRequest("/movie/upcoming", { page: 2 });
+		let res = await makeRequest("/movie/upcoming", { page: 1 });
 
 		return res;
 	} catch (error) {
