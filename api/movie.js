@@ -28,3 +28,13 @@ export async function upcomingApi(params) {
 		console.error(error);
 	}
 }
+
+export async function getMovieTrailer(movie_id) {
+	try {
+		let res = await makeRequest(`/movie/${movie_id}/videos`, { page: 1 });
+
+		return res;
+	} catch (error) {
+		console.error(error);
+	}
+}
