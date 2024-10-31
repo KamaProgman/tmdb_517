@@ -1,7 +1,39 @@
 import Swiper from "swiper";
 import "swiper/css";
-import { nowPlayingApi, popularApi } from "./api/movie";
+// import { popularApi } from "./api/movie";
+import { nowPlayingApi, upcomingApi } from "./api/movie";
 import { reload } from "./libs/utils";
+import { Movie } from "./components/Movie";
+import { PopularPer } from "./api/actor";
+import { LeftPartcel } from "./components/LeftPartCelebrity";
+import { RightElement } from "./components/RightPatrCel"
+
+
+Promise.all([nowPlayingApi(), upcomingApi(), PopularPer()])
+		.then(([nowPlaying, upcoming, popularper]) => {
+			reload(
+				nowPlaying.data.results.slice(0, 8),
+				document.querySelector(".mn_center_item"),
+				Movie
+			),
+				reload(
+					upcoming.data.results.slice(0, 4),
+					document.querySelector(".pictures"),
+					Movie
+				),
+				reload(popularper.data.results.slice(0, 2),
+					document.querySelector('.left_part_popular'),
+					LeftPartcel
+				),
+				reload(popularper.data.results.slice(2,6),
+					document.querySelector('.right_part_popular'),
+					RightElement
+				)
+
+			// console.log(popularper);
+
+		})
+		.catch((error) => console.error(error));
 
 const swiper = new Swiper(".swiper", {
 	slidesPerView: 4,
@@ -29,27 +61,3 @@ const swiper = new Swiper(".swiper", {
 		},
 	},
 });
-
-popularApi()
-	.then((res) => console.log(res.data))
-	.catch((error) => console.error(error));
-
-Promise.all([nowPlayingApi(), upcomingApi(), popularApi()])
-	.then(([nowPlaying, upcoming, popular]) => {
-		reload(
-			nowPlaying.data.results.slice(0, 8),
-			document.querySelector("mn_center_item"),
-			Moive
-		)
-		reload(
-			upcoming.data.results.slice(0, 8),
-			document.querySelector(".pictures"),
-			Moive
-		)
-		reload(
-			popular.data.results.slice(0, 8),
-			document.querySelector(".trailers_list"),
-			Moive
-		)
-	})
-	.catch((error) => console.error(error))

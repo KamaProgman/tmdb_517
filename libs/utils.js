@@ -6,5 +6,6 @@ export function reload(arr, place, component) {
 
         place.append(elem)
     }
-    
 }
+
+export let imageBaseUrl = "https://image.tmdb.org/t/p/w500"
