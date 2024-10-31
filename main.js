@@ -1,6 +1,7 @@
 import Swiper from "swiper";
 import "swiper/css";
-import { popularApi } from "./api/movie";
+import { nowPlayingApi, popularApi } from "./api/movie";
+import { reload } from "./libs/utils";
 
 const swiper = new Swiper(".swiper", {
 	slidesPerView: 4,
@@ -32,3 +33,23 @@ const swiper = new Swiper(".swiper", {
 popularApi()
 	.then((res) => console.log(res.data))
 	.catch((error) => console.error(error));
+
+Promise.all([nowPlayingApi(), upcomingApi(), popularApi()])
+	.then(([nowPlaying, upcoming, popular]) => {
+		reload(
+			nowPlaying.data.results.slice(0, 8),
+			document.querySelector("mn_center_item"),
+			Moive
+		)
+		reload(
+			upcoming.data.results.slice(0, 8),
+			document.querySelector(".pictures"),
+			Moive
+		)
+		reload(
+			popular.data.results.slice(0, 8),
+			document.querySelector(".trailers_list"),
+			Moive
+		)
+	})
+	.catch((error) => console.error(error))
