@@ -28,6 +28,11 @@ export function Movie(item) {
 	genreParagraph.className = "cinema_genre";
 	genreParagraph.textContent = item.original_title;
 
+	itemDiv.onmouseenter = () =>{
+		let bg_image = document.querySelector('.bg_image')
+		bg_image.style.backgroundImage = `url(${imageBaseUrl}${item.backdrop_path})`
+	}
+
 	itemDiv.appendChild(imgBoxDiv);
 	itemDiv.appendChild(nameParagraph);
 	itemDiv.appendChild(genreParagraph);

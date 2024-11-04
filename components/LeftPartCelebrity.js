@@ -4,9 +4,7 @@ export function LeftPartcel (item,arr){
     let index = arr.indexOf(item)
     const celebrityDiv = document.createElement('div');
     celebrityDiv.classList.add('celebrity');
-    celebrityDiv.style.backgroundImage = `url(${imageBaseUrl}${item.profile_path})`
-    console.log(`${imageBaseUrl}${item.profile_path}`);
-    
+    celebrityDiv.style.backgroundImage = `url(${imageBaseUrl}${item.profile_path})`    
 
     const ratingP = document.createElement('p');
     ratingP.classList.add('popular_reyting');
