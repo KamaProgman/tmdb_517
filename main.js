@@ -1,44 +1,46 @@
 import Swiper from "swiper";
 import "swiper/css";
 
-import { getGenres, nowPlayingApi, upcomingApi } from "./api/movie";
+import { getGeners, nowPlayingApi, upcomingApi } from "./api/movie";
 import { reload } from "./libs/utils";
 import { Movie } from "./components/Movie";
 import { PopularPer } from "./api/actor"
 import { LeftPartcel } from "./components/LeftPartCelebrity"
 import { RightElement } from "./components/RightPatrCel"
-import { Popular_movie } from "./components/popukaMovie";
 import { Genre } from "./components/Genre";
+import { header } from "./libs/header";
 
-Promise.all([nowPlayingApi(), upcomingApi(), PopularPer(), getGenres()])
-	.then(([nowPlaying, upcoming, PopularPer, genres]) => {
-		reload(
-			nowPlaying.data.results.slice(0, 8),
-			document.querySelector(".mn_center_item"),
-			Movie
-		);
-		reload(
-			upcoming.data.results.slice(0, 4),
-			document.querySelector(".pictures"),
-			Movie
-		),
-		reload(
-			PopularPer.data.results.slice(0,2),
-			document.querySelector(".left_part_popular"),
-			LeftPartcel
-		),
-		reload(
-			PopularPer.data.results.slice(2,6),
-			document.querySelector(".right_part_popular"),
-			RightElement
-		),
-		reload(
-			genres.data.genres.slice(0, 6),
-			document.querySelector(".top_right_part"),
-			Genre
-		)
-	})
-	.catch((error) => console.error(error));
+header()
+
+Promise.all([nowPlayingApi(), upcomingApi(), PopularPer(), getGeners()])
+		.then(([nowPlaying, upcoming, popularper,genres]) => {
+			reload(
+				nowPlaying.data.results.slice(0, 8),
+				document.querySelector(".mn_center_item"),
+				Movie
+			),
+				reload(
+					upcoming.data.results.slice(0, 4),
+					document.querySelector(".pictures"),
+					Movie
+				),
+				reload(popularper.data.results.slice(0, 2),
+					document.querySelector('.left_part_popular'),
+					LeftPartcel
+				),
+				reload(popularper.data.results.slice(2,6),
+					document.querySelector('.right_part_popular'),
+					RightElement
+				),
+				reload(genres.data.genres.slice(0,6),
+				document.querySelector('.top_right_part'),
+				Genre
+			)
+
+			// console.log(popularper);
+
+		})
+		.catch((error) => console.error(error));
 
 const swiper = new Swiper(".swiper", {
 	slidesPerView: 4,

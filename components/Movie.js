@@ -29,8 +29,6 @@ export function Movie(item) {
 	itemDiv.onmouseenter = () =>{
 		let bg_image = document.querySelector('.bg_image')
 		bg_image.style.backgroundImage = `url(${imageBaseUrl}${item.backdrop_path})`
-		console.log(bg_image);
-		
 	}
 
 	itemDiv.appendChild(imgBoxDiv);
