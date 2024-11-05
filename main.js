@@ -1,12 +1,17 @@
 import Swiper from "swiper";
 import "swiper/css";
-import { nowPlayingApi, popularApi, upcomingApi } from "./api/movie";
+
+import { getGenres, nowPlayingApi, upcomingApi } from "./api/movie";
 import { reload } from "./libs/utils";
 import { Movie } from "./components/Movie";
-import { Trailer } from "./components/Trailer";
+import { PopularPer } from "./api/actor"
+import { LeftPartcel } from "./components/LeftPartCelebrity"
+import { RightElement } from "./components/RightPatrCel"
+import { Popular_movie } from "./components/popukaMovie";
+import { Genre } from "./components/Genre";
 
-Promise.all([nowPlayingApi(), upcomingApi(), popularApi()])
-	.then(([nowPlaying, upcoming, popular]) => {
+Promise.all([nowPlayingApi(), upcomingApi(), PopularPer(), getGenres()])
+	.then(([nowPlaying, upcoming, PopularPer, genres]) => {
 		reload(
 			nowPlaying.data.results.slice(0, 8),
 			document.querySelector(".mn_center_item"),
@@ -16,12 +21,22 @@ Promise.all([nowPlayingApi(), upcomingApi(), popularApi()])
 			upcoming.data.results.slice(0, 4),
 			document.querySelector(".pictures"),
 			Movie
-		);
+		),
 		reload(
-			popular.data.results,
-			document.querySelector(".trailers_list"),
-			Trailer
-		);
+			PopularPer.data.results.slice(0,2),
+			document.querySelector(".left_part_popular"),
+			LeftPartcel
+		),
+		reload(
+			PopularPer.data.results.slice(2,6),
+			document.querySelector(".right_part_popular"),
+			RightElement
+		),
+		reload(
+			genres.data.genres.slice(0, 6),
+			document.querySelector(".top_right_part"),
+			Genre
+		)
 	})
 	.catch((error) => console.error(error));
 

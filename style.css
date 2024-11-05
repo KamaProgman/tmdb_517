@@ -31,6 +31,78 @@ body {
 	}
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #111;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 5px;
+    position: relative;
+    color: #fff;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    background: yellow;
+    border: none;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.tab {
+    color: #fff;
+    background: none;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.tab.active {
+    border-bottom: 2px solid blue;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
 
 .home_trailer {
 	width: 1440px;
@@ -103,13 +175,14 @@ body {
 		font-weight: 700;
 		line-height: 22.3px;
 		color: #6e717bff;
-
 		text-align: left;
+		text-transform: capitalize;
+		cursor: pointer;
+		transition: 400ms;
 	}
 
 	p:hover {
 		color: white;
-		transition: 500ms;
 	}
 }
 
@@ -492,6 +565,68 @@ a:hover {
 	gap: 23px;
 }
 
+.last_popular {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-rows: 520px;
+	gap: 23px;
+	margin-top: 65px;
+  }
+  
+  .popular_item {
+	img {
+	  width: 100%;
+	  border-radius: 10px;
+	}
+  }
+  
+  
+  .popular_box {
+	height: 462.91px;
+	border-radius: 10px;
+	margin-bottom: 12px;
+	position: relative;
+  
+	img {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	}
+  }
+  
+  .reyting-popular {
+	width: 55px;
+	height: 33px;
+	right: 10px;
+	top: 10px;
+	position: absolute;
+	background-color: #89cb36;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: left;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	border-radius: 5px;
+  }
+  
+  .name_movie_popular {
+	font-size: 18px;
+	font-weight: 700;
+	text-align: left;
+	color: white;
+  }
+  
+  .gener_movie_popular {
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 17.85px;
+	text-align: left;
+	color: #f2f60f;
+  }
+  
 .bottom_popular {
 	display: flex;
 	align-items: center;

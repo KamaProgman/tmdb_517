@@ -1,4 +1,4 @@
-import { imageBaseUrl } from "../libs/utils";
+import { imageBaseUrl } from "../libs/utils"
 
 export function Movie(item) {
 	const itemDiv = document.createElement("div");
@@ -25,6 +25,13 @@ export function Movie(item) {
 	const genreParagraph = document.createElement("p");
 	genreParagraph.className = "cinema_genre";
 	genreParagraph.textContent = item.original_title;
+
+	itemDiv.onmouseenter = () =>{
+		let bg_image = document.querySelector('.bg_image')
+		bg_image.style.backgroundImage = `url(${imageBaseUrl}${item.backdrop_path})`
+		console.log(bg_image);
+		
+	}
 
 	itemDiv.appendChild(imgBoxDiv);
 	itemDiv.appendChild(nameParagraph);
