@@ -71,9 +71,9 @@ export async function getStarring(movie_id) {
 		console.error(error);
 	}
 }
-export async function getPosters(movie_id) {
+export async function getPosters(movie_id, params) {
 	try {
-		let res = await makeRequest(`/movie/${movie_id}/images`);
+		let res = await makeRequest(`/movie/${movie_id}/images`, params);
 		return res;
 	} catch (error) {
 		console.error(error);

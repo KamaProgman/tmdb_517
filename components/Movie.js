@@ -28,19 +28,21 @@ export function Movie(item) {
 	genreParagraph.className = "cinema_genre";
 	genreParagraph.textContent = item.original_title;
 
-	itemDiv.onmouseenter = () =>{
-		let bg_image = document.querySelector('.bg_image')
-		bg_image.style.backgroundImage = `url(${imageBaseUrl}${item.backdrop_path})`
-	}
+	itemDiv.onmouseenter = () => {
+		let bg_image = document.querySelector(".bg_image");
+		bg_image.style.backgroundImage = `url(${imageBaseUrl}${item.backdrop_path})`;
+	};
+
+	console.log(`${imageBaseUrl}${item.backdrop_path}`);
 
 	itemDiv.appendChild(imgBoxDiv);
 	itemDiv.appendChild(nameParagraph);
 	itemDiv.appendChild(genreParagraph);
 
-	itemDiv.onclick = () =>{
-		localStorage.setItem("movieId",item.id)
-		window.location.href = '/pages/movie/'
-	}
+	itemDiv.onclick = () => {
+		localStorage.setItem("movieId", item.id);
+		window.location.href = "/pages/movie/";
+	};
 
 	return itemDiv;
 }
