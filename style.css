@@ -123,7 +123,7 @@ a:hover {
 }
 
 .item {
-	img {
+	img {	
 		width: 100%;
 		border-radius: 10px;
 	}
@@ -372,7 +372,7 @@ a:hover {
 }
 
 .block {
-	margin-top: 50px;
+	margin: 32px 0;
 
 	img {
 		width: 100%;
@@ -593,10 +593,14 @@ a:hover {
 }
 
 .movie_img_box {
-	width: 395px;
-	height: 539px;
-	background-color: red;
+	max-width: 395px;
+	width: 100%;
+	/* background-color: red; */
 
+	img {
+		width: 100%;
+		object-fit: cover;
+	}
 }
 
 .info_block {
@@ -612,7 +616,7 @@ a:hover {
 }
 
 .mn_name {
-	font-size: 65px;
+	font-size: 55px;
 	font-weight: 900;
 	color: white;
 	margin-bottom: 5px;
@@ -662,12 +666,15 @@ a:hover {
 
 .sm {
 	display: flex;
-	align-items: center;
 	gap: 17px;
 
 	.bx {
 		color: #FFFFFF80;
 	}
+}
+
+.icon {
+	font-size: 30px;
 }
 
 .midle_part_of {
@@ -720,4 +727,119 @@ a:hover {
 		font-weight: 500;
 		color: #F2F60F;
 	}
+}
+
+.starring {
+	margin-top: 45px;
+	margin-bottom: 104px;
+
+}
+
+.top_section_type {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 60px;
+
+	h1 {
+		font-size: 65px;
+		font-weight: 900;
+		color: white;
+	}
+
+	p {
+		font-size: 22px;
+		font-weight: 700;
+		color: white;
+		display: flex;
+		align-items: center;
+		gap: 27px;
+	}
+}
+
+.starring_img {
+	img {
+		height: 295px;
+		width: 100%;
+		object-fit: cover;
+	}
+}
+
+.starring_name {
+	font-size: 18px;
+	font-weight: 700;
+	color: white;
+	margin: 5px 0;
+}
+
+.starring_orig_name {
+	font-size: 14px;
+	font-weight: 400;
+	color: #FFFFFFB2;
+}
+
+.starring_name_movie {
+	font-size: 16px;
+	font-weight: 400;
+	color: #F2F60F;
+	margin-top: 5px;
+}
+
+.mn_starring_box {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 47px;
+}
+
+.name_trailers_slc {
+	display: flex;
+	justify-content: space-between;
+	/* align-items: center; */
+	margin-top: 10px;
+}
+
+.right_part_trailers {
+	display: flex;
+	gap: 33px;
+
+	.name_trailers {
+
+		font-size: 35px;
+		font-weight: 900;
+	}
+
+	.icona {
+		margin-top: 15px;
+	}
+}
+
+.item_poster {
+	height: 480.56px;
+
+	img {
+		width: 100%;
+		object-fit: cover;
+	}
+}
+
+.mn_poster_box {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.text_sml {
+	font-size: 65px;
+	font-weight: 900;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 73px;
+	margin-bottom: 65px;
+}
+.mn_similar_box{
+	display: grid;
+	grid-template-columns: repeat(4,1fr);
+	gap: 25px;
+	margin-bottom: 65px;
 }

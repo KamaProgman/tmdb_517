@@ -37,5 +37,10 @@ export function Movie(item) {
 	itemDiv.appendChild(nameParagraph);
 	itemDiv.appendChild(genreParagraph);
 
+	itemDiv.onclick = () =>{
+		localStorage.setItem("movieId",item.id)
+		window.location.href = '/pages/movie/'
+	}
+
 	return itemDiv;
 }

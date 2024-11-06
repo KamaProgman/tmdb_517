@@ -2,7 +2,7 @@ import Swiper from "swiper";
 import "swiper/css";
 // import { popularApi } from "./api/movie";
 
-import { getGeners, nowPlayingApi, upcomingApi } from "./api/movie";
+import { getGeners, getMovieTrailers, nowPlayingApi, upcomingApi } from "./api/movie";
 import { reload } from "./libs/utils";
 import { Movie } from "./components/Movie";
 import { PopularPer } from "./api/actor";
@@ -10,6 +10,7 @@ import { LeftPartcel } from "./components/LeftPartCelebrity";
 import { RightElement } from "./components/RightPatrCel"
 import { Genre } from "./components/Genre";
 import { header } from "./libs/header";
+import { Trailer } from "./components/Trailer";
 
 header()
 
@@ -25,6 +26,11 @@ Promise.all([nowPlayingApi(), upcomingApi(), PopularPer(), getGeners()])
 					document.querySelector(".pictures"),
 					Movie
 				),
+				reload(
+					upcoming.data.results,
+					document.querySelector(".trailers_list"),
+					Trailer
+				),
 				reload(popularper.data.results.slice(0, 2),
 					document.querySelector('.left_part_popular'),
 					LeftPartcel
@@ -37,7 +43,7 @@ Promise.all([nowPlayingApi(), upcomingApi(), PopularPer(), getGeners()])
 				document.querySelector('.top_right_part'),
 				Genre
 			)
-
+			
 			// console.log(popularper);
 
 		})
