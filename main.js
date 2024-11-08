@@ -2,7 +2,7 @@ import Swiper from "swiper";
 import "swiper/css";
 // import { popularApi } from "./api/movie";
 
-import { getGeners, getMovieTrailers, nowPlayingApi, upcomingApi } from "./api/movie";
+import { getGeners, getMovieTrailers, nowPlayingApi, popularApi, upcomingApi } from "./api/movie";
 import { reload } from "./libs/utils";
 import { Movie } from "./components/Movie";
 import { PopularPer } from "./api/actor";
@@ -14,40 +14,56 @@ import { Trailer } from "./components/Trailer";
 
 header()
 
-Promise.all([nowPlayingApi(), upcomingApi(), PopularPer(), getGeners()])
-		.then(([nowPlaying, upcoming, popularper,genres]) => {
+Promise.all([nowPlayingApi(), upcomingApi(), PopularPer(), getGeners(), popularApi()])
+	.then(([nowPlaying, upcoming, popularper, genres, popular]) => {
+		reload(
+			nowPlaying.data.results.slice(0, 8),
+			document.querySelector(".mn_center_item"),
+			Movie
+		),
 			reload(
-				nowPlaying.data.results.slice(0, 8),
-				document.querySelector(".mn_center_item"),
+				upcoming.data.results.slice(0, 4),
+				document.querySelector(".pictures"),
 				Movie
 			),
-				reload(
-					upcoming.data.results.slice(0, 4),
-					document.querySelector(".pictures"),
-					Movie
-				),
-				reload(
-					upcoming.data.results,
-					document.querySelector(".trailers_list"),
-					Trailer
-				),
-				reload(popularper.data.results.slice(0, 2),
-					document.querySelector('.left_part_popular'),
-					LeftPartcel
-				),
-				reload(popularper.data.results.slice(2,6),
-					document.querySelector('.right_part_popular'),
-					RightElement
-				),
-				reload(genres.data.genres.slice(0,6),
+			reload(
+				upcoming.data.results,
+				document.querySelector(".trailers_list"),
+				Trailer
+			),
+			reload(popularper.data.results.slice(0, 2),
+				document.querySelector('.left_part_popular'),
+				LeftPartcel
+			),
+			reload(popularper.data.results.slice(2, 6),
+				document.querySelector('.right_part_popular'),
+				RightElement
+			),
+			reload(genres.data.genres.slice(0, 6),
 				document.querySelector('.top_right_part'),
 				Genre
-			)
-			
-			// console.log(popularper);
+			),
+			reload(popular.data.results.slice(0, 4), document.querySelector('.mn_popular_box'), Movie)
+		console.log(popular);
 
-		})
-		.catch((error) => console.error(error));
+
+		// console.log(popularper);
+
+	})
+	.catch((error) => console.error(error));
+let close = document.querySelector('.close')
+close.onclick = () => {
+	console.log('ssdw');
+	let modal = document.querySelector('.modal')
+	modal.style.display = 'none'
+}
+let openModal = document.querySelector('.search_login')
+openModal.onclick = () => {
+	let modal = document.querySelector('.modal')
+	modal.style.display = 'block'
+}
+
+
 
 const swiper = new Swiper(".swiper", {
 	slidesPerView: 4,

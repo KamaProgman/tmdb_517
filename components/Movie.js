@@ -1,7 +1,6 @@
 import { imageBaseUrl } from "../libs/utils";
 
 export function Movie(item) {
-	// console.log(item);
 
 	const itemDiv = document.createElement("div");
 	itemDiv.className = "item";
@@ -33,7 +32,6 @@ export function Movie(item) {
 		bg_image.style.backgroundImage = `url(${imageBaseUrl}${item.backdrop_path})`;
 	};
 
-	console.log(`${imageBaseUrl}${item.backdrop_path}`);
 
 	itemDiv.appendChild(imgBoxDiv);
 	itemDiv.appendChild(nameParagraph);

@@ -16,6 +16,11 @@ header();
 
 let movieId = localStorage.getItem("movieId");
 
+let btnTr = document.querySelector('.viewTr')
+btnTr.onclick = () =>{
+	window.location.href = "#trailer"
+}
+
 getMovieById(movieId)
 	.then((res) => ShowMovie(res.data))
 	.catch((error) => console.error(error));

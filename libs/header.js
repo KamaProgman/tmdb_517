@@ -3,7 +3,7 @@ export function header(){
 
     header.innerHTML = `<div class="container header__container">
 			<div class="logo">
-				<img src="/logo.svg" alt="logo" />
+				<a href="/"><img src="/logo.svg" alt="logo" /></a>
 			</div>
 
 			<nav class="nav">

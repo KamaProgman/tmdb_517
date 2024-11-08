@@ -29,7 +29,7 @@ export async function getGeners(params) {
 }
 export async function popularApi() {
 	try {
-		let res = await makeRequest("/movie/popular", { page: 1 });
+		let res = await makeRequest("/movie/popular", { page: 2 });
 
 		return res;
 	} catch (error) {
@@ -53,6 +53,15 @@ export async function getMovieById(id, details = '') {
 		console.error(error);
 	}
 }
+export async function getActorById(id, details = '') {
+	try {
+		let res = await makeRequest(`/person/${id}${details == "" ? null : `/${details}`}` );
+		return res;
+	} catch (error) {
+		console.error(error);
+	}
+}
+
 export async function getMovieTrailers(movie_id) {
 	try {
 		let res = await makeRequest(`/movie/${movie_id}/videos`, { page: 1 });
@@ -82,6 +91,22 @@ export async function getPosters(movie_id, params) {
 export async function getSimilar(movie_id) {
 	try {
 		let res = await makeRequest(`/movie/${movie_id}/similar`);
+		return res;
+	} catch (error) {
+		console.error(error);
+	}
+}
+export async function getBestFilms(actorId) {
+	try {
+		let res = await makeRequest(`/person/${actorId}/movie_credits`);
+		return res;
+	} catch (error) {
+		console.error(error);
+	}
+}
+export async function getImagesAcc(actorId) {
+	try {
+		let res = await makeRequest(`/person/${actorId}/images`);
 		return res;
 	} catch (error) {
 		console.error(error);
