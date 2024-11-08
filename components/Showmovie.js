@@ -3,6 +3,8 @@ import { imageBaseUrl } from "../libs/utils";
 
 
 export function ShowMovie(item) {
+	console.log(item);
+	
 	let d = document;
 	let profilePic = d.querySelector(".profilePic");
 	profilePic.src = `${imageBaseUrl}${item.poster_path}`;
@@ -17,6 +19,19 @@ export function ShowMovie(item) {
 	orig_name.textContent = item.original_title;
 	let description = d.querySelector(".description");
 	description.textContent = item.overview;
+	let year = d.querySelector('.year')
+	year.textContent = item.release_date.slice(0,4)
+	let madeIn = d.querySelector('.madeIn')
+	madeIn.textContent = item.origin_country
+	let tagline = d.querySelector('.tagline')
+	tagline.textContent = item.tagline
+	let sum = d.querySelector('.sum')
+	sum.textContent = item.budget + '$'
+	let screenplay = d.querySelector('.screenplay')
+	screenplay.textContent = item.release_date
+	let time = d.querySelector('.time')
+	time.textContent = item.runtime + ' мин'
+	
 
 	renderDonutChart(item.vote_average);
 }
@@ -32,8 +47,8 @@ function renderDonutChart(averageRating = 7) {
 					{
 						label: "Average Rating",
 						data: [averageRating, 10 - averageRating],
-						backgroundColor: ["green", "white"],
-						hoverBackgroundColor: ["green", "blue"],
+						backgroundColor: ["#4BCB36", "#333332"],
+						hoverBackgroundColor: ["#36A2EB", "#e0e0e0"],
 					},
 				],
 			},

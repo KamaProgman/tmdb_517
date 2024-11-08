@@ -43,5 +43,10 @@ export function RightElement(item,arr) {
     celebrityRightDiv.appendChild(leftPartDiv);
     celebrityRightDiv.appendChild(rightPartDiv);
 
+    celebrityRightDiv.onclick = () =>{
+        localStorage.setItem('actorId' ,item.id)
+        window.location.href = '/pages/Celebrity/'
+    }
     return celebrityRightDiv;
+
 }

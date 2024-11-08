@@ -1,14 +1,22 @@
 import { getMovieById, getMovieTrailers, getPosters, getSimilar, getStarring } from "../../api/movie";
 import { Movie } from "../../components/Movie";
 import { Posters } from "../../components/Posters";
+import { Search } from "../../components/Search";
 import { ShowMovie } from "../../components/Showmovie";
 import { Starring } from "../../components/Starring";
 import { header } from "../../libs/header";
 import { reload } from "../../libs/utils";
 
 header();
+Search();
+
 
 let movieId = localStorage.getItem("movieId");
+
+let btnTr = document.querySelector('.viewTr')
+btnTr.onclick = () =>{
+	window.location.href = "#trailer"
+}
 
 getMovieById(movieId)
 	.then((res) => ShowMovie(res.data))

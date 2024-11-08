@@ -55,6 +55,21 @@
 				<button><i class="bx bxs-heart" style="color: #ffffff"></i></button>
 				<span class="saved"></span>
 			</div>
+
+			<section>
+				<div class="bottom_section">
+					<div class="section_bottom">
+						<p>Год: <span class="year"></span></p>
+						<p>Страна: <span class="madeIn"></span></p>
+						<p>Слоган: <span class="tagline"></span></p>
+						<p>Сборы в мире <span class="sum"></span></p>
+						<p>Премьера (мир): <span class="screenplay"></span></p>
+						<p>Время: <span class="time"></span></p>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="container">
 			<section class="starring">
 				<div class="top_section_type">
 					<h1>В главных ролях:</h1>
@@ -91,7 +106,7 @@
 						></span>
 					</p>
 				</div>
-				<div class="iframe_box">
+				<div class="iframe_box" id="trailer">
 					<iframe
 						width="100%"
 						height="822px"
@@ -135,23 +150,8 @@
 					</p>
 				</div>
 				<p class="movie_name"></p>
-				<div class="mn_poster_box"></div>
-			</section>
-			<section class="Stills">
-				<div class="top_section_type">
-					<h1>Кадры из фильма</h1>
-					<p>
-						Все постеры<span
-							><i
-								class="bx bx-arrow-back bx-rotate-180 icon"
-								style="color: #ffffff"
-							></i
-						></span>
-					</p>
-				</div>
-				<p class="movie_name"></p>
-				<div class="mn_stills_box">
-					<div class="item_stills">
+				<div class="mn_poster_box">
+					<div class="item_poster">
 						<img src="" alt="" />
 					</div>
 				</div>
@@ -161,6 +161,7 @@
 				<div class="mn_similar_box"></div>
 			</section>
 		</div>
+		<div class="modal search_modal"></div>
 
 		<script type="module" src="./script.js"></script>
 	</body>

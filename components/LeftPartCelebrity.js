@@ -31,6 +31,10 @@ export function LeftPartcel (item,arr){
     bottomPartDiv.appendChild(ageP);
 
     celebrityDiv.appendChild(bottomPartDiv);
+    celebrityDiv.onclick = () =>{
+        localStorage.setItem('actorId' ,item.id)
+        window.location.href = '/pages/Celebrity/'
+    }
 
     return celebrityDiv;
 }

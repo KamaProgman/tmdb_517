@@ -1,6 +1,8 @@
 import { imageBaseUrl } from "../libs/utils";
 
 export function Starring (data){
+    console.log(data);
+    
 const item = document.createElement('div');
 item.classList.add('item');
 
@@ -35,6 +37,11 @@ item.appendChild(starringImg);
 item.appendChild(starringName);
 item.appendChild(starringOrigName);
 item.appendChild(starringNameMovie);
+
+item.onclick = () =>{
+    localStorage.setItem("actorId" , data.id)
+    window.location.href = '/pages/Celebrity/'
+}
 
 return item
 

@@ -3,7 +3,7 @@ export function header(){
 
     header.innerHTML = `<div class="container header__container">
 			<div class="logo">
-				<img src="/logo.svg" alt="logo" / class= "href">
+				<a href="/"><img src="/logo.svg" alt="logo" /></a>
 			</div>
 
 			<nav class="nav">
@@ -24,9 +24,4 @@ export function header(){
 			</div>
 		</div>`
         
-	let img = document.querySelector(".href")
-
-	img.onclick = () => {
-		window.location.href = "/"
-	}
 }
