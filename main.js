@@ -2,19 +2,34 @@ import Swiper from "swiper";
 import "swiper/css";
 // import { popularApi } from "./api/movie";
 
-import { getGeners, getMovieTrailers, nowPlayingApi, popularApi, upcomingApi } from "./api/movie";
+import {
+	getGeners,
+	getMovieTrailers,
+	getSearchItems,
+	nowPlayingApi,
+	popularApi,
+	upcomingApi,
+} from "./api/movie";
 import { reload } from "./libs/utils";
 import { Movie } from "./components/Movie";
 import { PopularPer } from "./api/actor";
 import { LeftPartcel } from "./components/LeftPartCelebrity";
-import { RightElement } from "./components/RightPatrCel"
+import { RightElement } from "./components/RightPatrCel";
 import { Genre } from "./components/Genre";
 import { header } from "./libs/header";
 import { Trailer } from "./components/Trailer";
+import { Search } from "./components/Search";
 
-header()
+header();
+Search();
 
-Promise.all([nowPlayingApi(), upcomingApi(), PopularPer(), getGeners(), popularApi()])
+Promise.all([
+	nowPlayingApi(),
+	upcomingApi(),
+	PopularPer(),
+	getGeners(),
+	popularApi(),
+])
 	.then(([nowPlaying, upcoming, popularper, genres, popular]) => {
 		reload(
 			nowPlaying.data.results.slice(0, 8),
@@ -31,39 +46,31 @@ Promise.all([nowPlayingApi(), upcomingApi(), PopularPer(), getGeners(), popularA
 				document.querySelector(".trailers_list"),
 				Trailer
 			),
-			reload(popularper.data.results.slice(0, 2),
-				document.querySelector('.left_part_popular'),
+			reload(
+				popularper.data.results.slice(0, 2),
+				document.querySelector(".left_part_popular"),
 				LeftPartcel
 			),
-			reload(popularper.data.results.slice(2, 6),
-				document.querySelector('.right_part_popular'),
+			reload(
+				popularper.data.results.slice(2, 6),
+				document.querySelector(".right_part_popular"),
 				RightElement
 			),
-			reload(genres.data.genres.slice(0, 6),
-				document.querySelector('.top_right_part'),
+			reload(
+				genres.data.genres.slice(0, 6),
+				document.querySelector(".top_right_part"),
 				Genre
 			),
-			reload(popular.data.results.slice(0, 4), document.querySelector('.mn_popular_box'), Movie)
+			reload(
+				popular.data.results.slice(0, 4),
+				document.querySelector(".mn_popular_box"),
+				Movie
+			);
 		console.log(popular);
 
-
 		// console.log(popularper);
-
 	})
 	.catch((error) => console.error(error));
-let close = document.querySelector('.close')
-close.onclick = () => {
-	console.log('ssdw');
-	let modal = document.querySelector('.modal')
-	modal.style.display = 'none'
-}
-let openModal = document.querySelector('.search_login')
-openModal.onclick = () => {
-	let modal = document.querySelector('.modal')
-	modal.style.display = 'block'
-}
-
-
 
 const swiper = new Swiper(".swiper", {
 	slidesPerView: 4,

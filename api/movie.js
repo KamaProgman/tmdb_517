@@ -45,17 +45,21 @@ export async function upcomingApi(params) {
 		console.error(error);
 	}
 }
-export async function getMovieById(id, details = '') {
+export async function getMovieById(id, details = "") {
 	try {
-		let res = await makeRequest(`/movie/${id}${details == "" ? null : `/${details}`}` );
+		let res = await makeRequest(
+			`/movie/${id}${details == "" ? null : `/${details}`}`
+		);
 		return res;
 	} catch (error) {
 		console.error(error);
 	}
 }
-export async function getActorById(id, details = '') {
+export async function getActorById(id, details = "") {
 	try {
-		let res = await makeRequest(`/person/${id}${details == "" ? null : `/${details}`}` );
+		let res = await makeRequest(
+			`/person/${id}${details == "" ? null : `/${details}`}`
+		);
 		return res;
 	} catch (error) {
 		console.error(error);
@@ -69,8 +73,6 @@ export async function getMovieTrailers(movie_id) {
 	} catch (error) {
 		console.error(error);
 	}
-
-	
 }
 export async function getStarring(movie_id) {
 	try {
@@ -107,6 +109,15 @@ export async function getBestFilms(actorId) {
 export async function getImagesAcc(actorId) {
 	try {
 		let res = await makeRequest(`/person/${actorId}/images`);
+		return res;
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+export async function getSearchItems(category, params) {
+	try {
+		let res = await makeRequest(`/search/${category}`, params);
 		return res;
 	} catch (error) {
 		console.error(error);

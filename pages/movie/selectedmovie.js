@@ -7,12 +7,15 @@ import {
 } from "../../api/movie";
 import { Movie } from "../../components/Movie";
 import { Posters } from "../../components/Posters";
+import { Search } from "../../components/Search";
 import { ShowMovie } from "../../components/Showmovie";
 import { Starring } from "../../components/Starring";
 import { header } from "../../libs/header";
 import { reload } from "../../libs/utils";
 
 header();
+Search();
+
 
 let movieId = localStorage.getItem("movieId");
 
