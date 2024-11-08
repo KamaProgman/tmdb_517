@@ -1049,3 +1049,6 @@ a:hover {
 		color: white;
 	}
 }
+.modal{
+	display: none;
+}
