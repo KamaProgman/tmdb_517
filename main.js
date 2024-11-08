@@ -9,6 +9,7 @@ import { LeftPartcel } from "./components/LeftPartCelebrity"
 import { RightElement } from "./components/RightPatrCel"
 import { Genre } from "./components/Genre";
 import { header } from "./libs/header";
+import { Trailer } from "./components/Trailer";
 
 header()
 
@@ -24,6 +25,11 @@ Promise.all([nowPlayingApi(), upcomingApi(), PopularPer(), getGeners()])
 					document.querySelector(".pictures"),
 					Movie
 				),
+				reload(
+					upcoming.data.results,
+					document.querySelector(".trailers_list"),
+					Trailer
+				),
 				reload(popularper.data.results.slice(0, 2),
 					document.querySelector('.left_part_popular'),
 					LeftPartcel
@@ -35,10 +41,7 @@ Promise.all([nowPlayingApi(), upcomingApi(), PopularPer(), getGeners()])
 				reload(genres.data.genres.slice(0,6),
 				document.querySelector('.top_right_part'),
 				Genre
-			)
-
-			// console.log(popularper);
-
+				)
 		})
 		.catch((error) => console.error(error));
 

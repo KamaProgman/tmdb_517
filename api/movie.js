@@ -10,9 +10,29 @@ export async function nowPlayingApi() {
 	}
 }
 
+export async function getBestFilms(actorId) {
+	try {
+	  let res = await makeRequest(`/person/${actorId}/movie_credits`);
+	  
+	  return res;
+	} catch (error) {
+	  console.error(error);
+	}
+  }
+  export async function getImageesAcc(actorId) {
+	try {
+	  let res = await makeRequest(`/person/${actorId}/images`);
+
+	  return res;
+	} catch (error) {
+	  console.error(error);
+	}
+  }
+  
+
 export async function getMovies(params) {
 	try {
-		let res = await makeRequest(`/discover/movie`, { page: 1 , ...params});
+		let res = await makeRequest(`/discover/movie`, { page: 1, ...params });
 		return res;
 	} catch (error) {
 		console.error(error);
@@ -45,21 +65,53 @@ export async function upcomingApi(params) {
 		console.error(error);
 	}
 }
-
-export async function getMovieTrailer(movie_id) {
+export async function getMovieById(id, details = '') {
 	try {
-		let res = await makeRequest(`/movie/${movie_id}/videos`, { page: 1 });
-
+		let res = await makeRequest(`/movie/${id}${details == "" ? null : `/${details}`}` );
 		return res;
 	} catch (error) {
 		console.error(error);
 	}
 }
 
-export async function getGenres() {
+export async function getActorById(id, details = '') {
 	try {
-		let res = await makeRequest("/genre/movie/list");
+		let res = await makeRequest(`/person/${id}${details == "" ? null : `/${details}`}` );
+		return res;
+	} catch (error) {
+		console.error(error);
+	}
+}
 
+export async function getMovieTrailers(movie_id) {
+	try {
+		let res = await makeRequest(`/movie/${movie_id}/videos`, { page: 1 });
+		return res;
+	} catch (error) {
+		console.error(error);
+	}
+
+	
+}
+export async function getStarring(movie_id) {
+	try {
+		let res = await makeRequest(`/movie/${movie_id}/credits`, { page: 1 });
+		return res;
+	} catch (error) {
+		console.error(error);
+	}
+}
+export async function getPosters(movie_id, params) {
+	try {
+		let res = await makeRequest(`/movie/${movie_id}/images`, params);
+		return res;
+	} catch (error) {
+		console.error(error);
+	}
+}
+export async function getSimilar(movie_id) {
+	try {
+		let res = await makeRequest(`/movie/${movie_id}/similar`);
 		return res;
 	} catch (error) {
 		console.error(error);

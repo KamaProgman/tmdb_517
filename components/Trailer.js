@@ -1,4 +1,4 @@
-import { getMovieTrailer } from "../api/movie";
+import { getMovieTrailers } from "../api/movie";
 import { imageBaseUrl } from "../libs/utils";
 
 export function Trailer(item) {
@@ -27,7 +27,7 @@ export function Trailer(item) {
 	swiperSlide.append(movieItem, title);
 
 	swiperSlide.onclick = () => {
-		getMovieTrailer(item.id)
+		getMovieTrailers(item.id)
 			.then((res) => {
 				let trailer = res.data.results.find((item) => item.type == "Trailer");
 				let url = "https://www.youtube.com/embed/" + trailer.key;

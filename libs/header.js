@@ -3,7 +3,7 @@ export function header(){
 
     header.innerHTML = `<div class="container header__container">
 			<div class="logo">
-				<img src="/logo.svg" alt="logo" />
+				<img src="/logo.svg" alt="logo" / class= "href">
 			</div>
 
 			<nav class="nav">
@@ -19,9 +19,14 @@ export function header(){
 			</nav>
 
 			<div class="search_login">
-				<img src="/326690_magnify_search_zoom_icon.png" alt="search" />
+				<img src="/211817_search_strong_icon.png" alt="search" />
 				<button class="login_btn">Войти</button>
 			</div>
 		</div>`
         
+	let img = document.querySelector(".href")
+
+	img.onclick = () => {
+		window.location.href = "/"
+	}
 }
