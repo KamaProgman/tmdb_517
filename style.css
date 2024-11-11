@@ -470,8 +470,6 @@ a:hover {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	/* grid-template-columns: 3fr, 2fr; */
-	/* grid-auto-rows: 444px; */
 	margin-top: 63px;
 }
 
@@ -485,11 +483,6 @@ a:hover {
 	background-position: center;
 	transition: 200ms;
 }
-
-.celebrity:hover {
-	background-size: 110%;
-}
-
 .popular_reyting {
 	font-size: 15px;
 	color: #f2f60f;
@@ -565,6 +558,8 @@ a:hover {
 	font-weight: 600;
 }
 
+/* /////////////////////////////////////////////// 2 pages //////////////////////////////////////////// */
+
 .container_for_pages {
 	max-width: 1130px;
 	width: 100%;
@@ -595,7 +590,11 @@ a:hover {
 .info_block {
 	.top_link {
 		a {
-			color: #4f5b7cff;
+			color: #00a4ff;
+			transition: 300ms;
+		}
+		a:hover {
+			color: #007aff;
 		}
 	}
 }
@@ -681,13 +680,24 @@ a:hover {
 	}
 
 	.btn_reyting {
+		width: 200px;
 		height: 59px;
-		padding: 0 23px;
 		background-color: #1b2133;
 		border-radius: 10px;
 		font-size: 14px;
 		font-weight: 500;
 		color: #57d043;
+		overflow: hidden;
+
+		.progress {
+			background-color: #36882880;
+			text-align: left;
+			display: flex;
+			align-items: center;
+			padding: 0 12px;
+			/* width: 50%; */
+			height: 100%;
+		}
 	}
 
 	span {
@@ -784,7 +794,6 @@ a:hover {
 .name_trailers_slc {
 	display: flex;
 	justify-content: space-between;
-	/* align-items: center; */
 	margin-top: 10px;
 }
 
@@ -837,9 +846,19 @@ a:hover {
 }
 
 .movie-details {
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 100px;
+	position: relative;
+	h2 {
+		font-size: 14px;
+		color: #57d043;
+		position: absolute;
+		top: 55%;
+		transform: translateY(-50%);
+		right: 40px;
+	}
 }
+/* ///////////////////////////////////////////////////// 3 .............. */
 
 .img_cel_box {
 	img {
@@ -852,7 +871,6 @@ a:hover {
 
 .text_box {
 	p {
-		font-family: Qanelas;
 		font-size: 25px;
 		font-weight: 600;
 		color: white;
@@ -959,8 +977,8 @@ a:hover {
 		width: 217%;
 		background-color: transparent;
 		outline: none;
-		font-size: 40px;
-		font-weight: 600;
+		font-size: 35px;
+		font-weight: 400;
 	}
 	button {
 		position: absolute;
@@ -1030,20 +1048,29 @@ a:hover {
 	border-bottom: 5px solid #ccc;
 }
 
+.mn_item_show {
+	height: 650px;
+	overflow-y: scroll;
+	scrollbar-width: none;
+}
+
 .item_show {
+	cursor: pointer;
 	width: 90%;
 	margin-top: 10px;
 	background-color: #1e2538;
 	padding: 20px;
 	display: flex;
 	align-items: center;
+	border-radius: 10px;
+
 	gap: 20px;
 	.img_show_box {
 		height: 250px;
 		width: 190px;
-		border-radius: 10px;
-		background-color: white;
+		/* background-color: white; */
 		img {
+			border-radius: 10px;
 			height: 100%;
 			border: none;
 			width: 100%;
@@ -1057,5 +1084,7 @@ a:hover {
 	}
 }
 .modal {
-	display: none;
+	transition: 300ms;
+	visibility: hidden;
+	opacity: 0.1;
 }

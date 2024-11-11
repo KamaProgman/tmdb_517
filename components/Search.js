@@ -1,5 +1,7 @@
 import { debounce } from "chart.js/helpers";
 import { getSearchItems } from "../api/movie";
+import { reload } from "../libs/utils";
+import { SearchItem } from "./SearchItem";
 
 export function Search() {
 	let searchContent = document.querySelector(".search_modal");
@@ -30,22 +32,21 @@ export function Search() {
 				</div>
 			</div>
 			<div class="mn_item_show">
-				<div class="item_show">
-					<div class="img_show_box">
-						<img src="" alt="">
-					</div>
-					<p class="show_name"></p>
-				</div>
 			</div>
 		</div>`;
 
 	let close = document.querySelector(".close");
 	close.onclick = () => {
-		searchContent.style.display = "none";
+		searchContent.style.opacity = "0.1";
+		searchContent.style.visibility = "hidden";
+		document.body.style.overflow = "visible";
 	};
 	let openModal = document.querySelector(".search_login");
 	openModal.onclick = () => {
-		searchContent.style.display = "block";
+		searchContent.style.visibility = "visible";
+		searchContent.style.opacity = "1";
+
+		document.body.style.overflow = "hidden";
 	};
 
 	let categories = document.querySelectorAll(".modal_type_item");
@@ -65,7 +66,13 @@ export function Search() {
 	function searcher(category = "movie") {
 		const debouncedSearch = debounce((query) => {
 			getSearchItems(category, { query: query })
-				.then((res) => console.log(res))
+				.then((res) =>
+					reload(
+						res.data.results,
+						document.querySelector(".mn_item_show"),
+						SearchItem
+					)
+				)
 				.catch((error) => console.error(error));
 		}, 300);
 
