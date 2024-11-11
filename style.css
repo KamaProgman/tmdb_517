@@ -560,7 +560,6 @@ a:hover {
 
 /* /////////////////////////////////////////////// 2 pages //////////////////////////////////////////// */
 
-
 .container_for_pages {
 	max-width: 1130px;
 	width: 100%;
@@ -594,7 +593,7 @@ a:hover {
 			color: #00a4ff;
 			transition: 300ms;
 		}
-		a:hover{
+		a:hover {
 			color: #007aff;
 		}
 	}
@@ -681,13 +680,24 @@ a:hover {
 	}
 
 	.btn_reyting {
+		width: 200px;
 		height: 59px;
-		padding: 0 23px;
 		background-color: #1b2133;
 		border-radius: 10px;
 		font-size: 14px;
 		font-weight: 500;
 		color: #57d043;
+		overflow: hidden;
+
+		.progress {
+			background-color: #36882880;
+			text-align: left;
+			display: flex;
+			align-items: center;
+			padding: 0 12px;
+			/* width: 50%; */
+			height: 100%;
+		}
 	}
 
 	span {
@@ -839,14 +849,13 @@ a:hover {
 	width: 100px;
 	height: 100px;
 	position: relative;
-	h2{
+	h2 {
 		font-size: 14px;
 		color: #57d043;
 		position: absolute;
 		top: 55%;
 		transform: translateY(-50%);
 		right: 40px;
-
 	}
 }
 /* ///////////////////////////////////////////////////// 3 .............. */
@@ -981,7 +990,7 @@ a:hover {
 		border: none;
 		background-color: yellow;
 		padding: 14px;
-		
+
 		img {
 			height: 20px;
 			filter: invert(100%);
@@ -1041,7 +1050,7 @@ a:hover {
 
 .mn_item_show {
 	height: 650px;
-	overflow-y: scroll ;
+	overflow-y: scroll;
 	scrollbar-width: none;
 }
 
@@ -1054,7 +1063,7 @@ a:hover {
 	display: flex;
 	align-items: center;
 	border-radius: 10px;
-	
+
 	gap: 20px;
 	.img_show_box {
 		height: 250px;
@@ -1075,7 +1084,7 @@ a:hover {
 	}
 }
 .modal {
-
-	display: none;
-
+	transition: 300ms;
+	visibility: hidden;
+	opacity: 0.1;
 }

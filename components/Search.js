@@ -37,13 +37,16 @@ export function Search() {
 
 	let close = document.querySelector(".close");
 	close.onclick = () => {
-		searchContent.style.display = "none";
-		document.body.style.overflow = "visible"
+		searchContent.style.opacity = "0.1";
+		searchContent.style.visibility = "hidden";
+		document.body.style.overflow = "visible";
 	};
 	let openModal = document.querySelector(".search_login");
 	openModal.onclick = () => {
-		searchContent.style.display = "block";
-		document.body.style.overflow = "hidden"
+		searchContent.style.visibility = "visible";
+		searchContent.style.opacity = "1";
+
+		document.body.style.overflow = "hidden";
 	};
 
 	let categories = document.querySelectorAll(".modal_type_item");
@@ -63,7 +66,13 @@ export function Search() {
 	function searcher(category = "movie") {
 		const debouncedSearch = debounce((query) => {
 			getSearchItems(category, { query: query })
-				.then((res) => reload(res.data.results, document.querySelector('.mn_item_show'), SearchItem))
+				.then((res) =>
+					reload(
+						res.data.results,
+						document.querySelector(".mn_item_show"),
+						SearchItem
+					)
+				)
 				.catch((error) => console.error(error));
 		}, 300);
 

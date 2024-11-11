@@ -1,7 +1,6 @@
 import { imageBaseUrl } from "../libs/utils";
 
 export function Movie(item) {
-
 	const itemDiv = document.createElement("div");
 	itemDiv.className = "item";
 
@@ -28,10 +27,11 @@ export function Movie(item) {
 	genreParagraph.textContent = item.original_title;
 
 	itemDiv.onmouseenter = () => {
-		let bg_image = document.querySelector(".bg_image");
-		bg_image.style.backgroundImage = `url(${imageBaseUrl}${item.backdrop_path})`;
+		if(window.location.pathname != "/pages/movie/") {
+			let bg_image = document.querySelector(".bg_image");
+			bg_image.style.backgroundImage = `url(${imageBaseUrl}${item.backdrop_path})`;
+		}
 	};
-
 
 	itemDiv.appendChild(imgBoxDiv);
 	itemDiv.appendChild(nameParagraph);
