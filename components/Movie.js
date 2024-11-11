@@ -14,7 +14,7 @@ export function Movie(item) {
 
 	const ratingSpan = document.createElement("span");
 	ratingSpan.className = "reyting";
-	ratingSpan.textContent = item.vote_average;
+	ratingSpan.textContent = item.vote_average.toFixed(1);
 
 	imgBoxDiv.appendChild(imgElement);
 	imgBoxDiv.appendChild(ratingSpan);

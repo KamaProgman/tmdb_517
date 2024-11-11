@@ -14,6 +14,8 @@ export function ShowMovie(item) {
 	movie_name.textContent = item.title;
 	let mn_name = d.querySelector(".mn_name");
 	mn_name.textContent = item.title;
+	let title_reyting = d.querySelector('.title_reyting')
+	title_reyting.textContent = item.vote_average.toFixed(1)
 	let orig_name = d.querySelector(".orig_name");
 	orig_name.textContent = item.original_title;
 	let description = d.querySelector(".description");
