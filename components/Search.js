@@ -4,8 +4,6 @@ import { getSearchItems } from "../api/movie";
 export function Search() {
 	let searchContent = document.querySelector(".search_modal");
 
-	console.log(searchContent);
-
 	searchContent.innerHTML = `
   <div class="mn_modalBox">
 			<p class="logo_modal"><img src="/logo.svg" alt="logo"></p>
@@ -13,7 +11,7 @@ export function Search() {
 				<div class="inp_box">
 					<form name="auth">
 						<input type="text" class="search">
-						<button><img src="/326690_magnify_search_zoom_icon.png" alt="search" /></button>
+						<button><img src="/211817_search_strong_icon.png" alt="search" /></button>
 					</form>
 				</div>
 				<button class="close"><i class='bx bx-x'></i></button>

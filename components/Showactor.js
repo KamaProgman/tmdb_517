@@ -20,5 +20,4 @@ export function ShowActor(item) {
     let place_cel = d.querySelector('.place_cel')
     place_cel.textContent = item.place_of_birth
 
-
 }

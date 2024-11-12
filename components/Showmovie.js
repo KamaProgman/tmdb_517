@@ -47,8 +47,8 @@ function renderDonutChart(averageRating = 7) {
 					{
 						label: "Average Rating",
 						data: [averageRating, 10 - averageRating],
-						backgroundColor: ["#4BCB36", "#333332"],
-						hoverBackgroundColor: ["#36A2EB", "#e0e0e0"],
+						backgroundColor: ["green", "white"],
+						hoverBackgroundColor: ["blue", "grey"],
 					},
 				],
 			},

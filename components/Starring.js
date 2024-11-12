@@ -1,7 +1,6 @@
 import { imageBaseUrl } from "../libs/utils";
 
 export function Starring (data){
-    console.log(data);
     
 const item = document.createElement('div');
 item.classList.add('item');
@@ -40,7 +39,7 @@ item.appendChild(starringNameMovie);
 
 item.onclick = () =>{
     localStorage.setItem("actorId" , data.id)
-    window.location.href = '/pages/Celebrity/'
+    window.location.href = '/pages/Actors/'
 }
 
 return item
